@@ -1,6 +1,7 @@
 \RequirePackage[french]{babel}
 \RequirePackage[textfont=small,skip=0pt]{caption}
 \RequirePackage[applemac]{inputenc}
+\RequirePackage{ragged2e}
 
 
 %%%%%%%%%%%%%%%%%%
@@ -14,7 +15,33 @@
 %%%%%%%%%%%%%%%%
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+%Redefine itemize in order to have triangle as icon and to justify text
 \setbeamertemplate{itemize items}[triangle]
+\renewcommand{\itemize}[1][]{%
+  \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+  \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+      {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      {\def\makelabel##1{%
+          {%
+            \hss\llap{{%
+                \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          }%
+        }%
+      }
+  \fi%
+  \beamer@cramped%
+  \justifying% NEW
+  \beamer@firstlineitemizeunskip%
+}
+\makeatother
 
 \setbeamertemplate{frametitle}{
 \begin{beamercolorbox} [wd=\paperwidth] {frametitle}
