@@ -18,6 +18,14 @@
 
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
+\let\otp\titlepage
+\renewcommand{\titlepage}{
+\frame[plain]{\otp}
+\addtocounter{framenumber}{-1}
+\setcounter{framenumber}{0}
+}
+
+
 %Redefine itemize in order to have triangle as icon and to justify text
 \setbeamertemplate{itemize items}[triangle]
 \renewcommand{\itemize}[1][]{%
