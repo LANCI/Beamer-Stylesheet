@@ -58,7 +58,7 @@
 \hspace{0.75cm}
 \parbox[c]{\textwidth}{
   {\strut\scriptsize\inserttitle: \insertsection\strut}\\[-0.4cm]\rule{\textwidth}{0.5pt}\\[-0.1cm]
-  \textbf{\strut\insertframetitle\strut}
+  \textbf{\strut\centerline\insertframetitle\strut}
 }
 \end{beamercolorbox}
 }
@@ -67,16 +67,17 @@
 {
  %
   \hbox{%
-  \begin{beamercolorbox}[wd=.3\paperwidth,ht=3ex,dp=1ex,center]{section in head/foot}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=0.25cm,dp=1.5mm,center]{footline}%
       \raisebox{-0.8mm}{\includegraphics[height=3ex]{logolanci}}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.4\paperwidth,ht=3ex,dp=1ex,center]{section in head/foot}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=0.25cm,dp=1.5mm,center]{footline}%
 \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}  \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.3\paperwidth,ht=3ex,dp=1.5ex,center]{section in head/foot}%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=0.25cm,dp=1.5mm,center]{footline}%
     \raisebox{-1mm}{\includegraphics[scale=0.08]{logouqam}}
   \end{beamercolorbox}}%
 }
 
+\setbeamertemplate{blocks}[rounded][shadow=false]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                     COLOR SETTINGS                               %
@@ -122,6 +123,12 @@
 \setbeamercolor{block title example}{fg=solarizedBase03, bg=solarizedBase01}
 \setbeamercolor{block body example}{parent=solarizedBase03, bg=solarizedBase02}
 \setbeamercolor{separation line}{fg=solarizedBase0}
-\setbeamercolor{fine separation line}{fg=solarizedBase0}
+\setbeamercolor{upper separation line head}{bg=}
+\setbeamercolor{middle separation line head}{bg=}
+\setbeamercolor{lower separation line head}{bg=}
+\setbeamercolor{upper separation line foot}{bg=}
+\setbeamercolor{middle separation line foot}{bg=}
+\setbeamercolor{lower separation line foot}{bg=}
+
 \setbeamercolor{section in head/foot}{fg=solarizedYellow, bg=solarizedBase02}
 \setbeamercolor*{item}{fg=solarizedBase2}
